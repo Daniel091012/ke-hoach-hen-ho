@@ -3,34 +3,31 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Kế hoạch hẹn hò đặc biệt dành cho em 💕</title>
+<title>Em có đồng ý đi cùng anh không? 💕</title>
 <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@500;700&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
 <style>
 :root {
-  --pink: #ff6b9d;
-  --soft-pink: #ffb6c1;
-  --lavender: #c084fc;
-  --peach: #ffd1dc;
-  --bg: linear-gradient(135deg, #fff5f7 0%, #fce7f3 40%, #f3e8ff 100%);
-  --card: rgba(255,255,255,0.75);
-  --text: #4a2c4a;
   --accent: #ec4899;
+  --bg: linear-gradient(135deg, #fff5f7 0%, #fce7f3 40%, #f3e8ff 100%);
+  --card: rgba(255,255,255,0.8);
 }
 * { margin:0; padding:0; box-sizing:border-box; }
-html { scroll-behavior: smooth; }
 body {
   font-family: 'Poppins', sans-serif;
   background: var(--bg);
-  color: var(--text);
-  overflow-x: hidden;
+  color: #4a2c4a;
   min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
 }
 .hearts-container {
   position: fixed; top:0; left:0; width:100%; height:100%;
-  pointer-events: none; z-index: 0; overflow: hidden;
+  pointer-events: none; z-index: 0;
 }
 .heart {
-  position: absolute; font-size: 20px; color: var(--soft-pink);
+  position: absolute; font-size: 20px; color: #ffb6c1;
   animation: floatUp linear infinite; opacity: 0.7;
 }
 @keyframes floatUp {
@@ -38,269 +35,161 @@ body {
   10% { opacity: 0.8; }
   100% { transform: translateY(-10vh) rotate(360deg); opacity: 0; }
 }
-nav {
-  position: sticky; top: 0; z-index: 100;
-  background: rgba(255,245,247,0.85); backdrop-filter: blur(10px);
-  padding: 12px 20px; text-align: center; box-shadow: 0 2px 15px rgba(236,72,153,0.1);
-}
-nav a {
-  margin: 0 12px; color: #9d4edd; text-decoration: none; font-weight: 500;
-  font-size: 0.95rem; transition: color 0.3s;
-}
-nav a:hover { color: var(--accent); }
-header {
-  text-align: center; padding: 100px 20px 50px; position: relative; z-index: 1;
-}
-h1 {
-  font-family: 'Dancing Script', cursive; font-size: 4.2rem;
-  background: linear-gradient(to right, #ec4899, #a855f7);
-  -webkit-background-clip: text; -webkit-text-fill-color: transparent;
-  margin-bottom: 12px; animation: fadeIn 1.5s ease;
-}
-.subtitle { font-size: 1.25rem; color: #9d4edd; font-weight: 300; animation: fadeIn 2s ease 0.5s both; }
-@keyframes fadeIn { from { opacity:0; transform:translateY(30px);} to { opacity:1; transform:translateY(0);} }
-.container { max-width: 980px; margin: 0 auto; padding: 20px; position: relative; z-index: 1; }
-.section {
-  background: var(--card); backdrop-filter: blur(12px); border-radius: 28px;
-  padding: 36px; margin: 28px 0; box-shadow: 0 15px 35px rgba(236,72,153,0.1);
-  border: 1px solid rgba(255,255,255,0.5); animation: slideUp 0.8s ease both;
-}
-@keyframes slideUp { from { opacity:0; transform:translateY(40px);} to { opacity:1; transform:translateY(0);} }
-h2 {
-  font-family: 'Dancing Script', cursive; font-size: 2.6rem; color: var(--accent);
-  text-align: center; margin-bottom: 22px;
-}
-.timeline { position: relative; padding-left: 42px; }
-.timeline::before {
-  content: ''; position: absolute; left: 16px; top: 0; bottom: 0; width: 3px;
-  background: linear-gradient(to bottom, #ff9a9e, #fecfef, #a18cd1); border-radius: 10px;
-}
-.timeline-item {
-  position: relative; margin-bottom: 32px; padding: 22px; background: rgba(255,255,255,0.55);
-  border-radius: 18px; transition: all 0.4s cubic-bezier(0.4,0,0.2,1); cursor: pointer;
-}
-.timeline-item:hover { transform: translateX(8px) scale(1.015); box-shadow: 0 10px 25px rgba(236,72,153,0.15); }
-.timeline-item::before {
-  content: '💕'; position: absolute; left: -34px; top: 22px; font-size: 22px;
-  background: white; border-radius: 50%; width: 32px; height: 32px;
-  display: flex; align-items: center; justify-content: center; box-shadow: 0 0 0 4px #fff5f7;
-}
-.time { font-weight: 600; color: var(--accent); font-size: 1.05rem; }
-.activity { font-size: 1.2rem; margin: 4px 0; font-weight: 500; }
-.desc { font-size: 0.95rem; color: #6b5b6b; line-height: 1.65; margin-top: 6px; }
-.extra { display: none; margin-top: 12px; padding-top: 10px; border-top: 1px dashed #ffb6c1; font-size: 0.9rem; color: #7c3aed; }
-.timeline-item.open .extra { display: block; }
-.grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px,1fr)); gap: 18px; margin-top: 15px; }
 .card {
-  background: rgba(255,255,255,0.6); border-radius: 18px; padding: 20px; text-align: center;
-  transition: transform 0.3s, box-shadow 0.3s;
+  background: var(--card);
+  backdrop-filter: blur(12px);
+  border-radius: 30px;
+  padding: 50px 40px;
+  text-align: center;
+  max-width: 520px;
+  width: 90%;
+  box-shadow: 0 20px 40px rgba(236,72,153,0.15);
+  position: relative;
+  z-index: 1;
+  animation: fadeIn 1s ease;
 }
-.card:hover { transform: translateY(-6px); box-shadow: 0 12px 28px rgba(236,72,153,0.12); }
-.card h3 { color: var(--accent); margin-bottom: 8px; font-size: 1.15rem; }
-.qr-section { text-align: center; }
-#qrcode { display: inline-block; padding: 18px; background: white; border-radius: 20px; box-shadow: 0 10px 30px rgba(0,0,0,0.08); margin: 16px 0; }
+@keyframes fadeIn { from { opacity:0; transform:translateY(30px);} to { opacity:1; transform:translateY(0);} }
+h1 {
+  font-family: 'Dancing Script', cursive;
+  font-size: 3.2rem;
+  background: linear-gradient(to right, #ec4899, #a855f7);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  margin-bottom: 15px;
+}
+.message {
+  font-size: 1.15rem;
+  line-height: 1.7;
+  margin-bottom: 30px;
+  color: #7c3aed;
+}
+.buttons {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  align-items: center;
+}
 .btn {
-  display: inline-block; padding: 14px 36px; background: linear-gradient(135deg, #ec4899, #a855f7);
-  color: white; border: none; border-radius: 50px; font-size: 1.05rem; font-weight: 500;
-  cursor: pointer; transition: all 0.3s; box-shadow: 0 8px 20px rgba(236,72,153,0.3); margin: 8px;
+  border: none;
+  border-radius: 50px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s;
+  color: white;
 }
-.btn:hover { transform: translateY(-3px); box-shadow: 0 12px 25px rgba(236,72,153,0.4); }
-.message { text-align: center; font-size: 1.15rem; line-height: 1.8; font-style: italic; color: #7c3aed; }
-footer { text-align: center; padding: 50px 20px; color: #a855f7; font-family: 'Dancing Script', cursive; font-size: 1.35rem; position: relative; z-index: 1; }
+.btn-yes {
+  background: linear-gradient(135deg, #ec4899, #a855f7);
+  padding: 16px 40px;
+  font-size: 1.2rem;
+  box-shadow: 0 8px 20px rgba(236,72,153,0.35);
+  min-width: 220px;
+}
+.btn-yes:hover { transform: translateY(-3px); }
+.btn-no {
+  background: #e5e7eb;
+  color: #6b7280;
+  padding: 12px 28px;
+  font-size: 1rem;
+  min-width: 160px;
+}
+.btn-no:hover { background: #d1d5db; }
 .music-btn {
   position: fixed; bottom: 25px; right: 25px; width: 60px; height: 60px; border-radius: 50%;
   background: linear-gradient(135deg, #ec4899, #a855f7); color: white; border: none; font-size: 24px;
   cursor: pointer; box-shadow: 0 8px 20px rgba(236,72,153,0.4); z-index: 1000;
-  display: flex; align-items: center; justify-content: center; transition: all 0.3s;
-}
-.music-btn:hover { transform: scale(1.1); }
-.music-btn.playing { animation: pulse 1.5s infinite; }
-@keyframes pulse {
-  0% { box-shadow: 0 0 0 0 rgba(236,72,153,0.7); }
-  70% { box-shadow: 0 0 0 15px rgba(236,72,153,0); }
-  100% { box-shadow: 0 0 0 0 rgba(236,72,153,0); }
-}
-.confirm-box { text-align: center; margin-top: 20px; }
-@media (max-width: 600px) {
-  h1 { font-size: 2.8rem; } h2 { font-size: 2.1rem; }
-  .section { padding: 22px; } nav a { margin: 0 6px; font-size: 0.85rem; }
-  .timeline { padding-left: 32px; }
+  display: flex; align-items: center; justify-content: center;
 }
 </style>
 </head>
 <body>
 <div class="hearts-container" id="hearts"></div>
 
-<nav>
-  <a href="#intro">Mở đầu</a>
-  <a href="#plan">Lịch trình</a>
-  <a href="#details">Chi tiết</a>
-  <a href="#qr">QR</a>
-  <a href="#confirm">Xác nhận</a>
-</nav>
-
-<header>
-  <h1>Một đêm chỉ dành cho em</h1>
-  <p class="subtitle">Kế hoạch hẹn hò chi tiết • Lãng mạn • Dành riêng cho em ✨</p>
-</header>
-
-<div class="container">
-  <div class="section" id="intro">
-    <h2>Lời mở đầu</h2>
-    <p class="message">
-      Anh đã chuẩn bị một buổi tối thật nhẹ nhàng, thật đẹp và chỉ dành riêng cho em.<br>
-      Bắt đầu từ 8h tối, kết thúc muộn nhất 12h đêm để có thêm thời gian bên nhau...<br><br>
-      Em có muốn cùng anh trải nghiệm đêm này không? 💕
-    </p>
-    <div style="text-align:center;">
-      <button class="btn" onclick="showConfetti()">Em đồng ý đi cùng anh!</button>
-    </div>
-  </div>
-
-  <div class="section" id="plan">
-    <h2>Lịch trình chi tiết</h2>
-    <p style="text-align:center; margin-bottom:18px; color:#9d4edd;">Nhấn vào từng mục để xem gợi ý thêm • Bắt đầu 20:00, kết thúc muộn nhất 00:00</p>
-    <div class="timeline">
-      <div class="timeline-item" onclick="this.classList.toggle('open')">
-        <div class="time">20:00 Tối</div>
-        <div class="activity">☕ Gặp nhau & Uống gì đó</div>
-        <div class="desc">Gặp nhau tại quán cafe hoặc quán trà sữa, bắt đầu buổi tối thật nhẹ nhàng.</div>
-        <div class="extra">💡 Gợi ý: Quán có view đẹp, ánh sáng ấm. Có thể uống trà sữa hoặc cafe. Chụp ảnh đêm cũng rất đẹp.</div>
-      </div>
-      <div class="timeline-item" onclick="this.classList.toggle('open')">
-        <div class="time">20:45</div>
-        <div class="activity">🌸 Đi dạo & Check-in đêm</div>
-        <div class="desc">Đi dạo những con đường đẹp về đêm, chụp ảnh, tận hưởng không khí.</div>
-        <div class="extra">💡 Gợi ý: Phố đèn, công viên có đèn, hoặc khu view đẹp. Đi chậm rãi thôi.</div>
-      </div>
-      <div class="timeline-item" onclick="this.classList.toggle('open')">
-        <div class="time">21:30</div>
-        <div class="activity">🍝 Bữa tối lãng mạn</div>
-        <div class="desc">Bữa tối ấm áp tại nhà hàng. Anh để em chọn món, chỉ cần em vui là đủ.</div>
-        <div class="extra">💡 Gợi ý: Nhà hàng ánh sáng ấm, nhạc nhẹ. Ăn chậm để nói chuyện nhiều hơn.</div>
-      </div>
-      <div class="timeline-item" onclick="this.classList.toggle('open')">
-        <div class="time">22:30 - 00:00</div>
-        <div class="activity">✨ Khoảnh khắc đặc biệt</div>
-        <div class="desc">Anh sẽ nói với em những điều đã giữ trong lòng từ rất lâu... Rồi kết thúc muộn nhất lúc 12h đêm.</div>
-        <div class="extra">💡 Gợi ý: Thời điểm hoàn hảo để tỏ tình. Có thể đi dạo thêm hoặc ngồi nói chuyện đến 12h.</div>
-      </div>
-    </div>
-  </div>
-
-  <div class="section" id="details">
-    <h2>Chi tiết & Gợi ý</h2>
-    <div class="grid">
-      <div class="card">
-        <h3>👗 Outfit gợi ý</h3>
-        <p>Áo thun / váy nhẹ nhàng, thoải mái. Màu pastel hoặc trắng sẽ rất đẹp. Giày dễ đi bộ.</p>
-      </div>
-      <div class="card">
-        <h3>📍 Địa điểm</h3>
-        <p>Chọn quán + nhà hàng gần nhau để tiện di chuyển. Nơi có ánh sáng ấm về đêm sẽ rất lãng mạn.</p>
-      </div>
-      <div class="card">
-        <h3>🌙 Lưu ý</h3>
-        <p>Mang theo áo khoác mỏng nếu trời mát. Nếu mưa có thể chuyển sang indoor.</p>
-      </div>
-      <div class="card">
-        <h3>🎁 Quà nhỏ (tuỳ chọn)</h3>
-        <p>Hoa khô, thiệp viết tay, hoặc một món đồ nhỏ dễ thương. Không bắt buộc nhưng sẽ rất ngọt.</p>
-      </div>
-    </div>
-  </div>
-
-  <div class="section qr-section" id="qr">
-    <h2>Mã QR bí mật</h2>
-    <p>Quét mã này để xem kế hoạch trên điện thoại hoặc chia sẻ với em</p>
-    <div id="qrcode"></div>
-    <p style="font-size:0.9rem; color:#9d4edd; margin-top:10px;">Khi em mở link này trên web, mã QR sẽ tự động trỏ về chính trang này</p>
-  </div>
-
-  <div class="section" id="confirm">
-    <h2>Xác nhận & Lời kết</h2>
-    <p class="message">
-      Dù em có đồng ý hay chưa, anh chỉ muốn em biết rằng...<br>
-      Anh rất trân trọng em, và muốn dành thời gian thật đẹp cho em.<br><br>
-      Nếu em thích kế hoạch này, hãy nhắn anh nhé. Anh đang rất mong chờ. 💗
-    </p>
-    <div class="confirm-box">
-      <button class="btn" onclick="showConfetti()">Em đồng ý! Chốt lịch đi</button>
-      <button class="btn" style="background:linear-gradient(135deg,#a855f7,#6366f1);" onclick="alert('Anh sẽ chờ tin nhắn của em 💕')">Em muốn chỉnh sửa plan</button>
-    </div>
+<div class="card">
+  <h1>Em ơi...</h1>
+  <p class="message">
+    Anh đã chuẩn bị một buổi tối thật đẹp chỉ dành riêng cho em.<br>
+    Bắt đầu từ 8h tối, kết thúc muộn nhất 12h đêm...<br><br>
+    <strong>Em có đồng ý đi cùng anh không?</strong> 💕
+  </p>
+  <div class="buttons">
+    <button class="btn btn-yes" id="yesBtn" onclick="accept()">Em đồng ý đi!</button>
+    <button class="btn btn-no" id="noBtn" onclick="reject()">Không đi</button>
   </div>
 </div>
-
-<footer>
-  Được tạo ra bằng cả trái tim • Chỉ dành riêng cho em
-</footer>
 
 <audio id="bgMusic" loop preload="auto">
   <source src="https://archive.org/download/jamendo-595997/01-2237575-SoundBound-Sentimental%20Romantic%20Emotional%20Piano.mp3" type="audio/mpeg">
 </audio>
-<button class="music-btn" id="musicBtn" title="Bật/Tắt nhạc nền">🎵</button>
+<button class="music-btn" id="musicBtn">🎵</button>
 
-<script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.9.3/dist/confetti.browser.min.js"></script>
 <script>
-// Floating hearts
+let rejectCount = 0;
+const yesBtn = document.getElementById('yesBtn');
+const noBtn = document.getElementById('noBtn');
+
+function reject() {
+  rejectCount++;
+  // Grow the yes button
+  const scale = 1 + rejectCount * 0.18;
+  yesBtn.style.transform = `scale(${scale})`;
+  yesBtn.style.fontSize = (1.2 + rejectCount * 0.15) + 'rem';
+  yesBtn.style.padding = (16 + rejectCount * 4) + 'px ' + (40 + rejectCount * 8) + 'px';
+
+  // Fun messages
+  const messages = [
+    "Em chắc chắn không đi ư?",
+    "Thật sự không đi sao... 😢",
+    "Anh buồn quá, em suy nghĩ lại đi",
+    "Nút 'Em đồng ý' đang lớn hơn đấy!",
+    "Em ơi, đi với anh đi mà",
+    "Không đi thì anh sẽ buồn lắm đấy...",
+    "Em nhấn vào nút hồng đi thôi!"
+  ];
+  noBtn.textContent = messages[Math.min(rejectCount-1, messages.length-1)];
+
+  // Small confetti of sadness? or just hearts
+  if (rejectCount > 2) {
+    for (let i = 0; i < 5; i++) setTimeout(createHeart, i * 100);
+  }
+}
+
+function accept() {
+  confetti({
+    particleCount: 150,
+    spread: 80,
+    origin: { y: 0.6 },
+    colors: ['#ec4899', '#f472b6', '#c084fc', '#f9a8d4']
+  });
+  setTimeout(() => {
+    window.location.href = 'plan.html';
+  }, 800);
+}
+
 function createHeart() {
   const heart = document.createElement('div');
   heart.classList.add('heart');
-  heart.innerHTML = ['💕','💗','💖','💓','💞'][Math.floor(Math.random()*5)];
+  heart.innerHTML = ['💕','💗','💖'][Math.floor(Math.random()*3)];
   heart.style.left = Math.random() * 100 + 'vw';
-  heart.style.animationDuration = (Math.random() * 8 + 6) + 's';
-  heart.style.fontSize = (Math.random() * 15 + 15) + 'px';
+  heart.style.animationDuration = (Math.random() * 6 + 5) + 's';
   document.getElementById('hearts').appendChild(heart);
-  setTimeout(() => heart.remove(), 14000);
+  setTimeout(() => heart.remove(), 12000);
 }
-setInterval(createHeart, 700);
+setInterval(createHeart, 800);
 
-// QR Code
-new QRCode(document.getElementById("qrcode"), {
-  text: window.location.href || "https://your-date-plan.com",
-  width: 200, height: 200,
-  colorDark: "#ec4899", colorLight: "#ffffff",
-  correctLevel: QRCode.CorrectLevel.H
-});
-
-// Music control
+// Music
 const music = document.getElementById('bgMusic');
 const musicBtn = document.getElementById('musicBtn');
 music.volume = 0.25;
 musicBtn.addEventListener('click', () => {
   if (music.paused) {
-    music.play().catch(() => {});
+    music.play().catch(()=>{});
     musicBtn.textContent = '⏸️';
-    musicBtn.classList.add('playing');
   } else {
     music.pause();
     musicBtn.textContent = '🎵';
-    musicBtn.classList.remove('playing');
   }
 });
-
-// Confetti
-function showConfetti() {
-  const colors = ['#ec4899', '#f472b6', '#c084fc', '#f9a8d4', '#a855f7'];
-  confetti({ particleCount: 120, spread: 70, origin: { y: 0.6 }, colors });
-  setTimeout(() => confetti({ particleCount: 80, angle: 60, spread: 55, origin: { x: 0 }, colors }), 200);
-  setTimeout(() => confetti({ particleCount: 80, angle: 120, spread: 55, origin: { x: 1 }, colors }), 400);
-  // Extra hearts
-  for (let i = 0; i < 30; i++) setTimeout(createHeart, i * 40);
-}
-
-// Sparkles
-function createSparkle() {
-  const sparkle = document.createElement('div');
-  sparkle.classList.add('sparkle');
-  sparkle.style.left = Math.random()*100 + 'vw';
-  sparkle.style.top = Math.random()*100 + 'vh';
-  sparkle.style.animationDelay = Math.random()*2 + 's';
-  document.body.appendChild(sparkle);
-  setTimeout(() => sparkle.remove(), 2000);
-}
-setInterval(createSparkle, 900);
 </script>
 </body>
 </html>
