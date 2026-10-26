@@ -90,18 +90,6 @@ h1 {
   min-width: 140px;
 }
 .btn-no:hover { background: #e5e7eb; }
-.qr-box {
-  margin-top: 32px;
-  padding-top: 20px;
-  border-top: 1px dashed #e5e7eb;
-}
-#qrcode {
-  display: inline-block;
-  padding: 12px;
-  background: white;
-  border-radius: 12px;
-  margin: 8px 0;
-}
 .music-btn {
   position: fixed; bottom: 20px; right: 20px; width: 56px; height: 56px; border-radius: 50%;
   background: linear-gradient(135deg, #ec4899, #a855f7); color: white; border: none; font-size: 22px;
@@ -117,18 +105,13 @@ h1 {
   <h1>Tối nay đi chơi không?</h1>
   <p class="message">
     Anh đã sắp xếp một buổi tối nhẹ nhàng.<br>
-    Đón em, ăn gì đó, rồi đi dạo uống nước.<br>
+    Đón em, ăn gì đó, đi PTB chụp ảnh, rồi đi dạo uống nước.<br>
     Kết thúc khoảng 11h30 - 12h đêm.<br><br>
     Em đi cùng anh không?
   </p>
   <div class="buttons">
     <button class="btn btn-yes" id="yesBtn" onclick="accept()">Đi cùng anh</button>
     <button class="btn btn-no" id="noBtn" onclick="reject()">Thôi</button>
-  </div>
-
-  <div class="qr-box">
-    <p style="font-size:0.9rem; color:#9d4edd; margin-bottom:6px;">Quét mã này để mở trang</p>
-    <div id="qrcode"></div>
   </div>
 </div>
 
@@ -137,7 +120,6 @@ h1 {
 </audio>
 <button class="music-btn" id="musicBtn">🎵</button>
 
-<script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.9.3/dist/confetti.browser.min.js"></script>
 <script>
 let rejectCount = 0;
@@ -183,14 +165,6 @@ function createHeart() {
   setTimeout(() => heart.remove(), 13000);
 }
 setInterval(createHeart, 900);
-
-new QRCode(document.getElementById("qrcode"), {
-  text: window.location.href,
-  width: 160,
-  height: 160,
-  colorDark: "#ec4899",
-  colorLight: "#ffffff"
-});
 
 const music = document.getElementById('bgMusic');
 const musicBtn = document.getElementById('musicBtn');
