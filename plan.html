@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Lịch trình buổi hẹn 💕</title>
+<link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@500;700&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+:root {
+  --pink: #ff6b9d;
+  --soft-pink: #ffb6c1;
+  --lavender: #c084fc;
+  --bg: linear-gradient(135deg, #fff5f7 0%, #fce7f3 40%, #f3e8ff 100%);
+  --card: rgba(255,255,255,0.75);
+  --accent: #ec4899;
+}
+* { margin:0; padding:0; box-sizing:border-box; }
+html { scroll-behavior: smooth; }
+body {
+  font-family: 'Poppins', sans-serif;
+  background: var(--bg);
+  color: #4a2c4a;
+  min-height: 100vh;
+}
+.hearts-container {
+  position: fixed; top:0; left:0; width:100%; height:100%;
+  pointer-events: none; z-index: 0; overflow: hidden;
+}
+.heart {
+  position: absolute; font-size: 20px; color: var(--soft-pink);
+  animation: floatUp linear infinite; opacity: 0.7;
+}
+@keyframes floatUp {
+  0% { transform: translateY(100vh) rotate(0deg); opacity: 0; }
+  10% { opacity: 0.8; }
+  100% { transform: translateY(-10vh) rotate(360deg); opacity: 0; }
+}
+header {
+  text-align: center; padding: 60px 20px 30px; position: relative; z-index: 1;
+}
+h1 {
+  font-family: 'Dancing Script', cursive; font-size: 3.6rem;
+  background: linear-gradient(to right, #ec4899, #a855f7);
+  -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+  margin-bottom: 8px;
+}
+.container { max-width: 900px; margin: 0 auto; padding: 20px; position: relative; z-index: 1; }
+.section {
+  background: var(--card); backdrop-filter: blur(12px); border-radius: 28px;
+  padding: 36px; margin: 24px 0; box-shadow: 0 15px 35px rgba(236,72,153,0.1);
+}
+h2 {
+  font-family: 'Dancing Script', cursive; font-size: 2.5rem; color: var(--accent);
+  text-align: center; margin-bottom: 20px;
+}
+.timeline { position: relative; padding-left: 42px; }
+.timeline::before {
+  content: ''; position: absolute; left: 16px; top: 0; bottom: 0; width: 3px;
+  background: linear-gradient(to bottom, #ff9a9e, #fecfef, #a18cd1); border-radius: 10px;
+}
+.timeline-item {
+  position: relative; margin-bottom: 28px; padding: 20px; background: rgba(255,255,255,0.55);
+  border-radius: 18px; transition: all 0.3s; cursor: pointer;
+}
+.timeline-item:hover { transform: translateX(6px); box-shadow: 0 8px 20px rgba(236,72,153,0.12); }
+.timeline-item::before {
+  content: '💕'; position: absolute; left: -34px; top: 20px; font-size: 20px;
+  background: white; border-radius: 50%; width: 30px; height: 30px;
+  display: flex; align-items: center; justify-content: center; box-shadow: 0 0 0 4px #fff5f7;
+}
+.time { font-weight: 600; color: var(--accent); }
+.activity { font-size: 1.15rem; margin: 4px 0; font-weight: 500; }
+.desc { font-size: 0.95rem; color: #6b5b6b; line-height: 1.6; }
+.extra { display: none; margin-top: 10px; padding-top: 8px; border-top: 1px dashed #ffb6c1; font-size: 0.9rem; color: #7c3aed; }
+.timeline-item.open .extra { display: block; }
+.qr-section { text-align: center; }
+#qrcode { display: inline-block; padding: 16px; background: white; border-radius: 16px; margin: 12px 0; }
+.message { text-align: center; font-size: 1.1rem; line-height: 1.7; font-style: italic; color: #7c3aed; }
+footer { text-align: center; padding: 40px 20px; color: #a855f7; font-family: 'Dancing Script', cursive; font-size: 1.3rem; }
+.music-btn {
+  position: fixed; bottom: 25px; right: 25px; width: 60px; height: 60px; border-radius: 50%;
+  background: linear-gradient(135deg, #ec4899, #a855f7); color: white; border: none; font-size: 24px;
+  cursor: pointer; box-shadow: 0 8px 20px rgba(236,72,153,0.4); z-index: 1000;
+  display: flex; align-items: center; justify-content: center;
+}
+@media (max-width: 600px) {
+  h1 { font-size: 2.6rem; } h2 { font-size: 2rem; }
+  .section { padding: 22px; }
+}
+</style>
+</head>
+<body>
+<div class="hearts-container" id="hearts"></div>
+
+<header>
+  <h1>Lịch trình cho em</h1>
+  <p style="color:#9d4edd;">Bắt đầu 20:00 • Kết thúc muộn nhất 00:00</p>
+</header>
+
+<div class="container">
+  <div class="section">
+    <h2>Lịch trình chi tiết</h2>
+    <p style="text-align:center; margin-bottom:16px; color:#9d4edd;">Nhấn vào từng mục để xem thêm</p>
+    <div class="timeline">
+      <div class="timeline-item" onclick="this.classList.toggle('open')">
+        <div class="time">20:00 Tối</div>
+        <div class="activity">☕ Gặp nhau & Uống gì đó</div>
+        <div class="desc">Gặp nhau tại quán cafe hoặc quán trà sữa, bắt đầu buổi tối thật nhẹ nhàng.</div>
+        <div class="extra">💡 Gợi ý: Quán có view đẹp, ánh sáng ấm. Có thể uống trà sữa hoặc cafe.</div>
+      </div>
+      <div class="timeline-item" onclick="this.classList.toggle('open')">
+        <div class="time">20:45</div>
+        <div class="activity">🌸 Đi dạo & Check-in đêm</div>
+        <div class="desc">Đi dạo những con đường đẹp về đêm, chụp ảnh, tận hưởng không khí.</div>
+        <div class="extra">💡 Gợi ý: Phố đèn, công viên có đèn. Đi chậm rãi thôi.</div>
+      </div>
+      <div class="timeline-item" onclick="this.classList.toggle('open')">
+        <div class="time">21:30</div>
+        <div class="activity">🍝 Bữa tối lãng mạn</div>
+        <div class="desc">Bữa tối ấm áp tại nhà hàng. Anh để em chọn món, chỉ cần em vui là đủ.</div>
+        <div class="extra">💡 Gợi ý: Nhà hàng ánh sáng ấm, nhạc nhẹ. Ăn chậm để nói chuyện nhiều hơn.</div>
+      </div>
+      <div class="timeline-item" onclick="this.classList.toggle('open')">
+        <div class="time">22:30 - 00:00</div>
+        <div class="activity">✨ Khoảnh khắc đặc biệt</div>
+        <div class="desc">Anh sẽ nói với em những điều đã giữ trong lòng từ rất lâu... Rồi kết thúc muộn nhất lúc 12h đêm.</div>
+        <div class="extra">💡 Gợi ý: Thời điểm hoàn hảo để tỏ tình. Có thể đi dạo thêm hoặc ngồi nói chuyện đến 12h.</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="section qr-section">
+    <h2>Mã QR</h2>
+    <p>Quét để mở lại kế hoạch này</p>
+    <div id="qrcode"></div>
+  </div>
+
+  <div class="section">
+    <p class="message">
+      Anh rất mong được ở bên em đêm nay.<br>
+      Cảm ơn em đã đồng ý 💗
+    </p>
+  </div>
+</div>
+
+<footer>
+  Được tạo ra bằng cả trái tim • Chỉ dành riêng cho em
+</footer>
+
+<audio id="bgMusic" loop preload="auto">
+  <source src="https://archive.org/download/jamendo-595997/01-2237575-SoundBound-Sentimental%20Romantic%20Emotional%20Piano.mp3" type="audio/mpeg">
+</audio>
+<button class="music-btn" id="musicBtn">🎵</button>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
+<script>
+function createHeart() {
+  const heart = document.createElement('div');
+  heart.classList.add('heart');
+  heart.innerHTML = ['💕','💗','💖'][Math.floor(Math.random()*3)];
+  heart.style.left = Math.random() * 100 + 'vw';
+  heart.style.animationDuration = (Math.random() * 8 + 6) + 's';
+  document.getElementById('hearts').appendChild(heart);
+  setTimeout(() => heart.remove(), 14000);
+}
+setInterval(createHeart, 700);
+
+new QRCode(document.getElementById("qrcode"), {
+  text: window.location.href,
+  width: 180, height: 180,
+  colorDark: "#ec4899", colorLight: "#ffffff"
+});
+
+const music = document.getElementById('bgMusic');
+const musicBtn = document.getElementById('musicBtn');
+music.volume = 0.25;
+musicBtn.addEventListener('click', () => {
+  if (music.paused) {
+    music.play().catch(()=>{});
+    musicBtn.textContent = '⏸️';
+  } else {
+    music.pause();
+    musicBtn.textContent = '🎵';
+  }
+});
+</script>
+</body>
+</html>
