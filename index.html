@@ -3,13 +3,13 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Em có đồng ý đi cùng anh không? 💕</title>
+<title>Tối nay đi chơi không?</title>
 <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@500;700&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
 <style>
 :root {
   --accent: #ec4899;
   --bg: linear-gradient(135deg, #fff5f7 0%, #fce7f3 40%, #f3e8ff 100%);
-  --card: rgba(255,255,255,0.8);
+  --card: rgba(255,255,255,0.85);
 }
 * { margin:0; padding:0; box-sizing:border-box; }
 body {
@@ -20,83 +20,92 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
-  overflow: hidden;
+  padding: 20px;
 }
 .hearts-container {
   position: fixed; top:0; left:0; width:100%; height:100%;
   pointer-events: none; z-index: 0;
 }
 .heart {
-  position: absolute; font-size: 20px; color: #ffb6c1;
-  animation: floatUp linear infinite; opacity: 0.7;
+  position: absolute; font-size: 18px; color: #ffb6c1;
+  animation: floatUp linear infinite; opacity: 0.6;
 }
 @keyframes floatUp {
   0% { transform: translateY(100vh) rotate(0deg); opacity: 0; }
-  10% { opacity: 0.8; }
+  10% { opacity: 0.7; }
   100% { transform: translateY(-10vh) rotate(360deg); opacity: 0; }
 }
 .card {
   background: var(--card);
   backdrop-filter: blur(12px);
-  border-radius: 30px;
-  padding: 50px 40px;
+  border-radius: 24px;
+  padding: 40px 32px;
   text-align: center;
-  max-width: 520px;
-  width: 90%;
-  box-shadow: 0 20px 40px rgba(236,72,153,0.15);
+  max-width: 480px;
+  width: 100%;
+  box-shadow: 0 15px 35px rgba(236,72,153,0.12);
   position: relative;
   z-index: 1;
-  animation: fadeIn 1s ease;
 }
-@keyframes fadeIn { from { opacity:0; transform:translateY(30px);} to { opacity:1; transform:translateY(0);} }
 h1 {
   font-family: 'Dancing Script', cursive;
-  font-size: 3.2rem;
+  font-size: 2.8rem;
   background: linear-gradient(to right, #ec4899, #a855f7);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
-  margin-bottom: 15px;
+  margin-bottom: 12px;
 }
 .message {
-  font-size: 1.15rem;
-  line-height: 1.7;
-  margin-bottom: 30px;
-  color: #7c3aed;
+  font-size: 1.05rem;
+  line-height: 1.65;
+  margin-bottom: 28px;
+  color: #5b4a5b;
 }
 .buttons {
   display: flex;
   flex-direction: column;
-  gap: 16px;
+  gap: 14px;
   align-items: center;
 }
 .btn {
   border: none;
   border-radius: 50px;
-  font-weight: 600;
+  font-weight: 500;
   cursor: pointer;
   transition: all 0.3s;
-  color: white;
 }
 .btn-yes {
   background: linear-gradient(135deg, #ec4899, #a855f7);
-  padding: 16px 40px;
-  font-size: 1.2rem;
-  box-shadow: 0 8px 20px rgba(236,72,153,0.35);
-  min-width: 220px;
+  color: white;
+  padding: 14px 36px;
+  font-size: 1.1rem;
+  box-shadow: 0 6px 16px rgba(236,72,153,0.3);
+  min-width: 200px;
 }
-.btn-yes:hover { transform: translateY(-3px); }
 .btn-no {
-  background: #e5e7eb;
+  background: #f3f4f6;
   color: #6b7280;
-  padding: 12px 28px;
-  font-size: 1rem;
-  min-width: 160px;
+  padding: 10px 24px;
+  font-size: 0.95rem;
+  min-width: 140px;
 }
-.btn-no:hover { background: #d1d5db; }
+.btn-no:hover { background: #e5e7eb; }
+.qr-box {
+  margin-top: 32px;
+  padding-top: 20px;
+  border-top: 1px dashed #e5e7eb;
+}
+#qrcode {
+  display: inline-block;
+  padding: 12px;
+  background: white;
+  border-radius: 12px;
+  margin: 8px 0;
+}
 .music-btn {
-  position: fixed; bottom: 25px; right: 25px; width: 60px; height: 60px; border-radius: 50%;
-  background: linear-gradient(135deg, #ec4899, #a855f7); color: white; border: none; font-size: 24px;
-  cursor: pointer; box-shadow: 0 8px 20px rgba(236,72,153,0.4); z-index: 1000;
+  position: fixed; bottom: 20px; right: 20px; width: 56px; height: 56px; border-radius: 50%;
+  background: linear-gradient(135deg, #ec4899, #a855f7); color: white; border: none; font-size: 22px;
+  cursor: pointer; box-shadow: 0 6px 16px rgba(236,72,153,0.35); z-index: 1000;
   display: flex; align-items: center; justify-content: center;
 }
 </style>
@@ -105,15 +114,21 @@ h1 {
 <div class="hearts-container" id="hearts"></div>
 
 <div class="card">
-  <h1>Em ơi...</h1>
+  <h1>Tối nay đi chơi không?</h1>
   <p class="message">
-    Anh đã chuẩn bị một buổi tối thật đẹp chỉ dành riêng cho em.<br>
-    Bắt đầu từ 8h tối, kết thúc muộn nhất 12h đêm...<br><br>
-    <strong>Em có đồng ý đi cùng anh không?</strong> 💕
+    Anh đã sắp xếp một buổi tối nhẹ nhàng.<br>
+    Đón em, ăn gì đó, rồi đi dạo uống nước.<br>
+    Kết thúc khoảng 11h30 - 12h đêm.<br><br>
+    Em đi cùng anh không?
   </p>
   <div class="buttons">
-    <button class="btn btn-yes" id="yesBtn" onclick="accept()">Em đồng ý đi!</button>
-    <button class="btn btn-no" id="noBtn" onclick="reject()">Không đi</button>
+    <button class="btn btn-yes" id="yesBtn" onclick="accept()">Đi cùng anh</button>
+    <button class="btn btn-no" id="noBtn" onclick="reject()">Thôi</button>
+  </div>
+
+  <div class="qr-box">
+    <p style="font-size:0.9rem; color:#9d4edd; margin-bottom:6px;">Quét mã này để mở trang</p>
+    <div id="qrcode"></div>
   </div>
 </div>
 
@@ -122,6 +137,7 @@ h1 {
 </audio>
 <button class="music-btn" id="musicBtn">🎵</button>
 
+<script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.9.3/dist/confetti.browser.min.js"></script>
 <script>
 let rejectCount = 0;
@@ -130,57 +146,55 @@ const noBtn = document.getElementById('noBtn');
 
 function reject() {
   rejectCount++;
-  // Grow the yes button
-  const scale = 1 + rejectCount * 0.18;
+  const scale = 1 + rejectCount * 0.15;
   yesBtn.style.transform = `scale(${scale})`;
-  yesBtn.style.fontSize = (1.2 + rejectCount * 0.15) + 'rem';
-  yesBtn.style.padding = (16 + rejectCount * 4) + 'px ' + (40 + rejectCount * 8) + 'px';
+  yesBtn.style.fontSize = (1.1 + rejectCount * 0.1) + 'rem';
+  yesBtn.style.padding = (14 + rejectCount * 3) + 'px ' + (36 + rejectCount * 6) + 'px';
 
-  // Fun messages
   const messages = [
-    "Em chắc chắn không đi ư?",
-    "Thật sự không đi sao... 😢",
-    "Anh buồn quá, em suy nghĩ lại đi",
-    "Nút 'Em đồng ý' đang lớn hơn đấy!",
-    "Em ơi, đi với anh đi mà",
-    "Không đi thì anh sẽ buồn lắm đấy...",
-    "Em nhấn vào nút hồng đi thôi!"
+    "Thật không đi ư?",
+    "Em suy nghĩ lại đi",
+    "Đi chơi thôi mà",
+    "Nút đi cùng anh đang to hơn đấy",
+    "Em nhấn nút trên đi"
   ];
   noBtn.textContent = messages[Math.min(rejectCount-1, messages.length-1)];
-
-  // Small confetti of sadness? or just hearts
-  if (rejectCount > 2) {
-    for (let i = 0; i < 5; i++) setTimeout(createHeart, i * 100);
-  }
 }
 
 function accept() {
   confetti({
-    particleCount: 150,
-    spread: 80,
-    origin: { y: 0.6 },
-    colors: ['#ec4899', '#f472b6', '#c084fc', '#f9a8d4']
+    particleCount: 100,
+    spread: 70,
+    origin: { y: 0.65 },
+    colors: ['#ec4899', '#f472b6', '#c084fc']
   });
   setTimeout(() => {
     window.location.href = 'plan.html';
-  }, 800);
+  }, 700);
 }
 
 function createHeart() {
   const heart = document.createElement('div');
   heart.classList.add('heart');
-  heart.innerHTML = ['💕','💗','💖'][Math.floor(Math.random()*3)];
+  heart.innerHTML = ['💕','💗'][Math.floor(Math.random()*2)];
   heart.style.left = Math.random() * 100 + 'vw';
-  heart.style.animationDuration = (Math.random() * 6 + 5) + 's';
+  heart.style.animationDuration = (Math.random() * 7 + 6) + 's';
   document.getElementById('hearts').appendChild(heart);
-  setTimeout(() => heart.remove(), 12000);
+  setTimeout(() => heart.remove(), 13000);
 }
-setInterval(createHeart, 800);
+setInterval(createHeart, 900);
 
-// Music
+new QRCode(document.getElementById("qrcode"), {
+  text: window.location.href,
+  width: 160,
+  height: 160,
+  colorDark: "#ec4899",
+  colorLight: "#ffffff"
+});
+
 const music = document.getElementById('bgMusic');
 const musicBtn = document.getElementById('musicBtn');
-music.volume = 0.25;
+music.volume = 0.2;
 musicBtn.addEventListener('click', () => {
   if (music.paused) {
     music.play().catch(()=>{});
